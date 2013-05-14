@@ -2,5 +2,7 @@ class Comment < ActiveRecord::Base
   resourcify
 
   belongs_to :post
-  attr_accessible :body, :commenter
+  belongs_to :user, :inverse_of => :comments
+
+  attr_accessible :body, :user_id
 end
