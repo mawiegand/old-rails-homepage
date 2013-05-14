@@ -1,9 +1,8 @@
 class Post < ActiveRecord::Base
   resourcify
 
-  attr_accessible :content, :title
+  attr_accessible :content, :title, :user_id
 
-  validates :name,  :presence => true
   validates :title, :presence => true,
                     :length => { :minimum => 5 }
   
