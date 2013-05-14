@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   resourcify
 
-  attr_accessible :content, :name, :title
+  attr_accessible :content, :title
 
   validates :name,  :presence => true
   validates :title, :presence => true,
