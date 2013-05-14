@@ -1,6 +1,6 @@
 <article>
   <h2><%= link_to post.title, post_path(post) %></h2>
-  <div class="author"><span class="name"><%= post.name %></span> on <span class="date"> <%=l post.created_at %> </span></div>
+  <div class="author"><span class="name"><%= post.user.name %></span> on <span class="date"> <%=l post.created_at %> </span></div>
   <p><%= raw post.content %></p>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_post_path(post), :class => 'btn btn-mini' if can? :update, post %>
