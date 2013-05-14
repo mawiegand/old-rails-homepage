@@ -2,11 +2,10 @@
 
 <%= render @post %>
 
-<h2>Comments</h2>
+<h3>Comments</h3>
 <%= render @post.comments %>
 
 <% if can? :create, Comment %>
-  <h2>Add a comment:</h2>
   <%= render "comments/form" %>
 <% end %>
 
