@@ -1,19 +1,35 @@
-<%= form_for @post, :html => { :class => 'form-horizontal' } do |f| %>
+<% @post.tags.build %>
+<%= form_for @post, :html => { :class => 'form-horizontal' } do |post_form| %>
+  <% if @post.errors.any? %>
+    <div id="errorExplanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
+    <%= post_form.label :title, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :title, :class => 'text_field' %>
+      <%= post_form.text_field :title, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :content, :class => 'control-label' %>
+    <%= post_form.label :content, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :content, :class => 'text_area' %>
+      <%= post_form.text_area :content, :class => 'text_area' %>
     </div>
   </div>
 
+  <h2>Tags</h2>
+  <%= render :partial => 'tags/form',
+             :locals => {:form => post_form} %>
+
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= post_form.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 posts_path, :class => 'btn' %>
   </div>
