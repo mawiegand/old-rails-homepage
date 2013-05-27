@@ -1,20 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @page.title %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @page.content %>
-</p>
-
-<p>
-  <b>Slug:</b>
-  <%= @page.slug %>
-</p>
-
-
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>
+<%= raw @page.content %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              pages_path, :class => 'btn' %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_page_path(@page), :class => 'btn' if can? :update, @page %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              page_path(@page),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' if can? :delete, @page %>
+</div>
