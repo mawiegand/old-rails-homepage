@@ -33,6 +33,7 @@ gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'cancan'
 gem 'rolify'
+gem 'friendly_id'
 gem 'twitter'
 gem 'tweetstream'
 

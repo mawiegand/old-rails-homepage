@@ -1,4 +1,7 @@
 Homepage::Application.routes.draw do
+  resources :pages
+
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get "home/index"
@@ -10,6 +13,8 @@ Homepage::Application.routes.draw do
   end
 
   resource :tweets, :only => [:show]
+
+  match '/:id' => 'pages#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
