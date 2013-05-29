@@ -3,6 +3,9 @@
   <ul class="nav">
     <li><%= link_to "Blog", posts_path %></li>
     <li><%= link_to "Tweets", tweets_path %></li>
+    <% Page.all.each do |page| %>
+    <li><%= link_to page.title, page.slug %></li>
+    <% end %>
   </ul>
   <ul class="nav pull-right">
     <%= render 'devise/menu/registration_items' %>
