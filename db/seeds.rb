@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Page.create(title: "About", content: "<h2>University</h2>Currently I am studying Mathematics and Computer Science at the University of Osnabr&uuml;ck.")
+Page.create(title: "Contact", content: "Mail: marcel[AT]bluepanel[DOT]org")
