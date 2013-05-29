@@ -31,5 +31,6 @@ class Ability
       can :create, Comment
     end
     can :read, :all
+    cannot :index, Page
   end
 end
